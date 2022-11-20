@@ -13,60 +13,43 @@ class _LoginUiState extends State<LoginUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: <Widget>[
-          Text("Login"),
-          // this's TextField User
-          TextField(
-            controller: usernameCon,
-            decoration: InputDecoration(
-              labelText: "User",
-              hintText: "Enter User",
-              icon: Icon(Icons.person),
-            ),
-          ),
-          // TextField Password
-          TextField(
-            controller: passwordCon,
-            decoration: InputDecoration(
-              labelText: "Password",
-              hintText: "Enter Password",
-              icon: Icon(Icons.key),
-            ),
-          ),
-          // this's button for Login to homeUi
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              "LOGIN",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
             children: [
-              Text(
-                "If you forget password",
-                style: TextStyle(fontSize: 16),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.10,
               ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "HERE",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+              Text(
+                "Login Account",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.10,
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 40,
+                      right: 40,
+                    ),
+                    child: Text(
+                      "Username",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
-        ],
+        ),
       ),
     );
   }

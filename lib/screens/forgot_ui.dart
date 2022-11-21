@@ -13,7 +13,6 @@ class ForgotUi extends StatefulWidget {
 }
 
 class _ForgotUiState extends State<ForgotUi> {
-  var emailCon;
 
   // ignore: non_constant_identifier_names
   @override
@@ -57,7 +56,6 @@ class _ForgotUiState extends State<ForgotUi> {
             ),
             child: TextField(
               keyboardType: TextInputType.emailAddress,
-              controller: emailCon,
               decoration: InputDecoration(
                 icon: Icon(Icons.email),
                 labelText: 'E-mail',

@@ -11,11 +11,11 @@ class RegisterEmailUi extends StatefulWidget {
 
 class _RegisterUiState extends State<RegisterEmailUi> {
   var emailReexprssion;
-  var editEmailCon;
-  var emailCon;
+
 
   @override
   Widget build(BuildContext context) {
+    var editEmailCon;
     return Scaffold(
       body: ListView(
         children: <Widget>[
@@ -27,7 +27,7 @@ class _RegisterUiState extends State<RegisterEmailUi> {
             ),
           ),
           EmailWidget(
-              editEmailCon: editEmailCon, emailReexprssion: emailReexprssion),
+              emailReexprssion: emailReexprssion, editEmailCon: editEmailCon),
           TextFormField(
             obscureText: true,
             autocorrect: true,

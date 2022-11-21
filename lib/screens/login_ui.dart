@@ -1,3 +1,4 @@
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 import 'package:flutter/material.dart';
 
 class LoginUi extends StatefulWidget {
@@ -13,43 +14,103 @@ class _LoginUiState extends State<LoginUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          // ignore: prefer_const_constructors
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+              "LOGIN ACCOUNT",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 40,
+              right: 40,
+            ),
+            child: TextField(
+              controller: usernameCon,
+              decoration: InputDecoration(
+                icon: Icon(Icons.perm_identity),
+                labelText: 'Username',
+                hintText: 'Enter username',
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 40,
+              right: 40,
+            ),
+            child: TextField(
+              controller: passwordCon,
+              decoration: InputDecoration(
+                icon: Icon(Icons.key),
+                labelText: 'Passwords',
+                hintText: 'Enter Passwords',
+              ),
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.width * 0.10,
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("Login"),
               ),
-              Text(
-                "Login Account",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.width * 0.10,
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 40,
-                      right: 40,
-                    ),
-                    child: Text(
-                      "Username",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
-        ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(width: 15),
+              Text(
+                "If you foget you are password click",
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Here",
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "If you not have account",
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Register Here!!",
+                  style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

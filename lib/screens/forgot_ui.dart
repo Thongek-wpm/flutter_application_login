@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/screens/home_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_application_foods/src/conroller.dart';
+import 'package:flutter_application_foods/model/conroller.dart';
 
 class ForgotUi extends StatefulWidget {
   const ForgotUi({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/screens/forgot_ui.dart';
 import 'package:flutter_application_foods/screens/register_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_application_foods/src/conroller.dart';
+import 'package:flutter_application_foods/model/conroller.dart';
 
 class LoginUi extends StatefulWidget {
   const LoginUi({super.key});

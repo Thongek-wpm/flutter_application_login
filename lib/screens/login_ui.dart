@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import, prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/screens/forgot_ui.dart';
+import 'package:flutter_application_foods/screens/register_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_application_foods/src/conroller.dart';
 
@@ -12,7 +13,6 @@ class LoginUi extends StatefulWidget {
 }
 
 class _LoginUiState extends State<LoginUi> {
-
   @override
   Widget build(BuildContext context) {
     var usernameCon;
@@ -82,7 +82,14 @@ class _LoginUiState extends State<LoginUi> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const RegisterUi(),
+                    ),
+                  );
+                },
                 child: Text(
                   "Register Here!!",
                   style: TextStyle(

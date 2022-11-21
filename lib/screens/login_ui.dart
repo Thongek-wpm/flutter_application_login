@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/screens/forgot_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_application_foods/src/conroller.dart';
 
 class LoginUi extends StatefulWidget {
   const LoginUi({super.key});
@@ -11,10 +12,11 @@ class LoginUi extends StatefulWidget {
 }
 
 class _LoginUiState extends State<LoginUi> {
-  final TextEditingController usernameCon = TextEditingController(text: '');
-  final TextEditingController passwordCon = TextEditingController(text: '');
+
   @override
   Widget build(BuildContext context) {
+    var usernameCon;
+    var passwordCon;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/screens/home_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_application_foods/src/conroller.dart';
 
 class ForgotUi extends StatefulWidget {
   const ForgotUi({super.key});
@@ -12,8 +13,9 @@ class ForgotUi extends StatefulWidget {
 }
 
 class _ForgotUiState extends State<ForgotUi> {
+  var emailCon;
 
-  final TextEditingController emailConroller = TextEditingController(text: '');
+  // ignore: non_constant_identifier_names
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +57,7 @@ class _ForgotUiState extends State<ForgotUi> {
             ),
             child: TextField(
               keyboardType: TextInputType.emailAddress,
+              controller: emailCon,
               decoration: InputDecoration(
                 icon: Icon(Icons.email),
                 labelText: 'E-mail',

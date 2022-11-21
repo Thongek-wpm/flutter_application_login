@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 import 'package:flutter/material.dart';
+import 'package:flutter_application_foods/screens/forgot_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginUi extends StatefulWidget {
@@ -50,6 +51,7 @@ class _LoginUiState extends State<LoginUi> {
               right: 40,
             ),
             child: TextField(
+              obscureText: true,
               controller: passwordCon,
               decoration: InputDecoration(
                 icon: Icon(Icons.key),
@@ -82,9 +84,10 @@ class _LoginUiState extends State<LoginUi> {
                 child: Text(
                   "Register Here!!",
                   style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold),
+                    color: Colors.red,
+                    fontSize: 19,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],
@@ -99,12 +102,19 @@ class _LoginUiState extends State<LoginUi> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ForgotUi(),
+                    ),
+                  );
+                },
                 child: Text(
                   "Here",
                   style: TextStyle(
                     color: Colors.red,
-                    fontSize: 20,
+                    fontSize: 19,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -142,7 +152,6 @@ class _LoginUiState extends State<LoginUi> {
           ),
         ],
       ),
-      backgroundColor: Colors.grey,
     );
   }
 }

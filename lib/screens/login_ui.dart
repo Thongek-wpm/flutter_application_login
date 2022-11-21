@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, unused_import
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginUi extends StatefulWidget {
   const LoginUi({super.key});
@@ -70,28 +71,6 @@ class _LoginUiState extends State<LoginUi> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(width: 15),
-              Text(
-                "If you foget you are password click",
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Here",
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
               Text(
                 "If you not have account",
                 style: TextStyle(
@@ -110,8 +89,60 @@ class _LoginUiState extends State<LoginUi> {
               ),
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "If you foget you are password click",
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Here",
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {},
+                child: Row(
+                  children: const [
+                    Icon(FontAwesomeIcons.google),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text("Login with Google"),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Row(
+                  children: const [
+                    Text("Login with Number Phone"),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
+      backgroundColor: Colors.grey,
     );
   }
 }

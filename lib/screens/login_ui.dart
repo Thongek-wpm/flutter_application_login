@@ -41,9 +41,9 @@ class _LoginUiState extends State<LoginUi> {
             child: TextField(
               controller: usernameCon,
               decoration: InputDecoration(
-                icon: Icon(Icons.perm_identity),
-                labelText: 'Username',
-                hintText: 'Enter username',
+                icon: Icon(Icons.email),
+                labelText: 'E-mail',
+                hintText: 'Enter E-mail',
               ),
             ),
           ),

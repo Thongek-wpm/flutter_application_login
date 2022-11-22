@@ -36,7 +36,7 @@ class _ForgotUiState extends State<ForgotUi> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              "You are forget your password?",
+              "YOU ARE FOGRET YOUR PASSWORD?",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

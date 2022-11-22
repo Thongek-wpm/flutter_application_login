@@ -124,36 +124,46 @@ class _RegisterUiState extends State<RegisterUi> {
                     Padding(
                       padding: const EdgeInsets.all(15),
                       child: ElevatedButton(
-                        onPressed: (){
+                        onPressed: () async {
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             try {
-                              FirebaseAuth.instance
+                              await FirebaseAuth.instance
                                   .createUserWithEmailAndPassword(
                                 email: profile.email,
                                 password: profile.password,
-                              );
-                              formKey.currentState!.reset();
-                              Fluttertoast.showToast(
-                                msg: 'Your Registered',
-                                gravity: ToastGravity.CENTER,
-                              );
-                              Navigator.pushReplacement(context,
-                                  MaterialPageRoute(builder: (context) {
-                                return const LoginUi();
-                              }));
-                            } on FirebaseAuthException catch (e) {
-                              print(e.code);
-                              print(e.message);
-                              String message;
-                              if (e.message ==
-                                  'The email address is already in use by another account.') {
-                                message = "This email address is already";
+                              )
+                                  .then((value) {
+                                formKey.currentState!.reset();
                                 Fluttertoast.showToast(
-                                  msg: message,
+                                  msg: 'Your Registered',
                                   gravity: ToastGravity.TOP,
                                 );
+                                // ignore: use_build_context_synchronously
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(builder: (context) {
+                                    return const LoginUi();
+                                  }),
+                                );
+                              });
+                            } on FirebaseAuthException catch (e) {
+                              print(e.message);
+                              // ignore: unused_local_variable
+                              String message;
+                              String code;
+                              if (e.message == 'email-already-in-use') {
+                                message = "This email address is already";
+                              } else if (e.code == 'weak-password') {
+                                code =
+                                    "Password should be at least 6 characters ";
+                              } else {
+                                message = e.message!;
                               }
+                              // Fluttertoast.showToast(
+                              //   msg: code,
+                              //   gravity: ToastGravity.CENTER,
+                              //   );
                             }
                           }
                           ;

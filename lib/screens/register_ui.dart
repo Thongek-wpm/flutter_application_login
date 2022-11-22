@@ -1,7 +1,8 @@
-// ignore_for_file: avoid_unnecessary_containers
+// ignore_for_file: avoid_unnecessary_containers, avoid_print, empty_statements
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/model/profile.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class RegisterUi extends StatefulWidget {
   const RegisterUi({super.key});
@@ -12,8 +13,13 @@ class RegisterUi extends StatefulWidget {
 
 class _RegisterUiState extends State<RegisterUi> {
   final formKey = GlobalKey<FormState>();
-  Profile profile =
-      Profile(email: '', name: '', password: '', user: '', phone: '');
+  Profile profile = Profile(
+    email: '',
+    name: '',
+    password: '',
+    user: '',
+    phone: '',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +55,9 @@ class _RegisterUiState extends State<RegisterUi> {
                 Padding(
                   padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
                   child: TextFormField(
+                    validator: RequiredValidator(
+                      errorText: 'you enter you name',
+                    ),
                     onSaved: (String? name) {
                       profile.name = name!;
                     },
@@ -69,6 +78,9 @@ class _RegisterUiState extends State<RegisterUi> {
                 Padding(
                   padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
                   child: TextFormField(
+                    validator: RequiredValidator(
+                      errorText: 'you enter your uesr',
+                    ),
                     onSaved: (String? user) {
                       profile.user = user!;
                     },
@@ -89,6 +101,16 @@ class _RegisterUiState extends State<RegisterUi> {
                 Padding(
                   padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
                   child: TextFormField(
+                    validator: MultiValidator(
+                      [
+                        RequiredValidator(
+                          errorText: 'you enter your E-mail',
+                        ),
+                        EmailValidator(
+                          errorText: 'Your email format is invalid.',
+                        )
+                      ],
+                    ),
                     onSaved: (String? email) {
                       profile.email = email!;
                     },
@@ -113,6 +135,9 @@ class _RegisterUiState extends State<RegisterUi> {
                 Padding(
                   padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
                   child: TextFormField(
+                    validator: RequiredValidator(
+                      errorText: 'you enter password',
+                    ),
                     onSaved: (String? password) {
                       profile.password = password!;
                     },
@@ -134,6 +159,9 @@ class _RegisterUiState extends State<RegisterUi> {
                 Padding(
                   padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
                   child: TextFormField(
+                    validator: RequiredValidator(
+                      errorText: 'you enter your number phone',
+                    ),
                     onSaved: (String? phone) {
                       profile.phone = phone!;
                     },
@@ -153,8 +181,14 @@ class _RegisterUiState extends State<RegisterUi> {
                       padding: const EdgeInsets.all(15),
                       child: ElevatedButton(
                         onPressed: () {
-                          formKey.currentState!.save();
-                          formKey.currentState!.reset();
+                          if (formKey.currentState!.validate()) {
+                            formKey.currentState!.save();
+                            print(
+                              'Name ${profile.user} User ${profile.user} E-mail ${profile.email} Password ${profile.password} Number ${profile.phone}',
+                            );
+                            formKey.currentState!.reset();
+                          }
+                          ;
                         },
                         child: const Text(
                           'Done',

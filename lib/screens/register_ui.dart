@@ -124,7 +124,7 @@ class _RegisterUiState extends State<RegisterUi> {
                     Padding(
                       padding: const EdgeInsets.all(15),
                       child: ElevatedButton(
-                        onPressed: () async {
+                        onPressed: (){
                           if (formKey.currentState!.validate()) {
                             formKey.currentState!.save();
                             try {
@@ -136,17 +136,24 @@ class _RegisterUiState extends State<RegisterUi> {
                               formKey.currentState!.reset();
                               Fluttertoast.showToast(
                                 msg: 'Your Registered',
-                                gravity: ToastGravity.TOP,
+                                gravity: ToastGravity.CENTER,
                               );
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return const LoginUi();
                               }));
                             } on FirebaseAuthException catch (e) {
-                              Fluttertoast.showToast(
-                                msg: e.message!,
-                                gravity: ToastGravity.TOP,
-                              );
+                              print(e.code);
+                              print(e.message);
+                              String message;
+                              if (e.message ==
+                                  'The email address is already in use by another account.') {
+                                message = "This email address is already";
+                                Fluttertoast.showToast(
+                                  msg: message,
+                                  gravity: ToastGravity.TOP,
+                                );
+                              }
                             }
                           }
                           ;

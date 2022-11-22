@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import
+// ignore_for_file: unused_import, prefer_const_constructors, duplicate_ignore, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/screens/home_ui.dart';
@@ -13,8 +13,8 @@ class ForgotUi extends StatefulWidget {
 }
 
 class _ForgotUiState extends State<ForgotUi> {
-
   // ignore: non_constant_identifier_names
+  var emailCon;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,31 +32,24 @@ class _ForgotUiState extends State<ForgotUi> {
         centerTitle: true,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <Widget>[
+        children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(
-              left: 40,
-              right: 40,
-            ),
+            padding: const EdgeInsets.all(10.0),
             child: Text(
-              "You are Forget your password?",
+              "You are forget your password?",
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(
-              left: 30,
-              right: 30,
-              top: 5,
-            ),
+            padding: EdgeInsets.only(right: 40, left: 40, top: 10),
             child: TextField(
+              controller: emailCon,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
+                // ignore: prefer_const_constructors
                 icon: Icon(Icons.email),
                 labelText: 'E-mail',
                 hintText: 'Enter E-mail',
@@ -64,7 +57,11 @@ class _ForgotUiState extends State<ForgotUi> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(40),
+            padding: EdgeInsets.all(0.5),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: Text('Okay'),
+            ),
           )
         ],
       ),

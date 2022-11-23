@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers, avoid_print, empty_statements, unused_import
+// ignore_for_file: avoid_unnecessary_containers
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -148,7 +148,9 @@ class _RegisterUiState extends State<RegisterUi> {
                                 );
                               });
                             } on FirebaseAuthException catch (e) {
+                              // ignore: avoid_print
                               print(e.message);
+                              // ignore: avoid_print
                               print(e.code);
                               // ignore: unused_local_variable
                               String? message;
@@ -166,6 +168,7 @@ class _RegisterUiState extends State<RegisterUi> {
                               );
                             }
                           }
+                          // ignore: empty_statements
                           ;
                         },
                         child: const Text(

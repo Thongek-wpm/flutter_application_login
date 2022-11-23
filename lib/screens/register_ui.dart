@@ -18,6 +18,9 @@ class _RegisterUiState extends State<RegisterUi> {
   Profile profile = Profile(
     email: '',
     password: '',
+    name: '',
+    phone: '',
+    user: '',
   );
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
   @override
@@ -65,6 +68,52 @@ class _RegisterUiState extends State<RegisterUi> {
                 const Padding(
                   padding: EdgeInsets.only(top: 5, left: 15, right: 15),
                   child: Text(
+                    'Name',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
+                  child: TextFormField(
+                    validator: RequiredValidator(
+                      errorText: 'you enter name',
+                    ),
+                    onSaved: (String? name) {
+                      profile.name = name!;
+                    },
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person),
+                      labelText: 'Name',
+                      hintText: 'Enter name',
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 5, left: 15, right: 15),
+                  child: Text(
+                    'User',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
+                  child: TextFormField(
+                    validator: RequiredValidator(
+                      errorText: 'you enter User',
+                    ),
+                    onSaved: (String? user) {
+                      profile.user = user!;
+                    },
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person_rounded),
+                      labelText: 'User',
+                      hintText: 'Enter user',
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 5, left: 15, right: 15),
+                  child: Text(
                     'E-mail',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
@@ -88,8 +137,8 @@ class _RegisterUiState extends State<RegisterUi> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration(
                       icon: Icon(Icons.email),
-                      labelText: 'Number email',
-                      hintText: 'Enter Number email',
+                      labelText: ' E-mail',
+                      hintText: 'Enter e-mail',
                     ),
                   ),
                 ),
@@ -114,6 +163,30 @@ class _RegisterUiState extends State<RegisterUi> {
                       icon: Icon(Icons.key),
                       labelText: 'Passwords',
                       hintText: 'Enter Passwords',
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(top: 5, left: 15, right: 15),
+                  child: Text(
+                    'phone',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 0.1, left: 15, right: 15),
+                  child: TextFormField(
+                    validator: RequiredValidator(
+                      errorText: 'you enter phone',
+                    ),
+                    onSaved: (String? phone) {
+                      profile.phone = phone!;
+                    },
+                    keyboardType: TextInputType.phone,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.phone),
+                      labelText: 'phone',
+                      hintText: 'Enter phone',
                     ),
                   ),
                 ),

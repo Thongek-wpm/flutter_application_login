@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_foods/model/profile.dart';
 import 'package:flutter_application_foods/screens/home_ui.dart';
+import 'package:flutter_application_foods/screens/profile_ui.dart';
 import 'package:flutter_application_foods/screens/register_ui.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:form_field_validator/form_field_validator.dart';
@@ -19,6 +20,9 @@ class _LoginUiState extends State<LoginUi> {
   Profile profile = Profile(
     email: '',
     password: '',
+    name: '',
+    phone: '',
+    user: '',
   );
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
   @override
@@ -42,7 +46,7 @@ class _LoginUiState extends State<LoginUi> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
                     Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.only(left: 20, bottom: 15),
                       child: Text(
                         "LOGIN ACCOUNT",
                         style: TextStyle(
@@ -52,7 +56,7 @@ class _LoginUiState extends State<LoginUi> {
                   ],
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 5,
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 5, left: 15, right: 15),
@@ -132,7 +136,7 @@ class _LoginUiState extends State<LoginUi> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) {
-                                        return const HomeUi();
+                                        return const ProFileUi();
                                       },
                                     ),
                                   );

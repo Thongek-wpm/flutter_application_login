@@ -5,7 +5,6 @@ import 'package:flutter_application_foods/model/profile.dart';
 import 'package:flutter_application_foods/screens/home_ui.dart';
 import 'package:flutter_application_foods/screens/register_ui.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 import 'package:form_field_validator/form_field_validator.dart';
 
 class LoginUi extends StatefulWidget {
@@ -126,13 +125,19 @@ class _LoginUiState extends State<LoginUi> {
                                 email: profile.email,
                                 password: profile.password,
                               )
-                                  .then((value) {
-                                formKey.currentState!.reset();
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return const HomeUi();
-                                }));
-                              });
+                                  .then(
+                                (value) {
+                                  formKey.currentState!.reset();
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return const HomeUi();
+                                      },
+                                    ),
+                                  );
+                                },
+                              );
                             } on FirebaseAuthException catch (e) {
                               Fluttertoast.showToast(
                                 msg: e.message!,

@@ -179,7 +179,7 @@ class _RegisterUiState extends State<RegisterUi> {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],

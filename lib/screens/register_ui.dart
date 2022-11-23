@@ -1,4 +1,3 @@
-// ignore_for_file: avoid_unnecessary_containers
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +36,7 @@ class _RegisterUiState extends State<RegisterUi> {
         ),
         centerTitle: true,
       ),
+      // ignore: avoid_unnecessary_containers
       body: Container(
         child: SingleChildScrollView(
           child: Form(

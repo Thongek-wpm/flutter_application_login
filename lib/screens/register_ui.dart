@@ -155,10 +155,11 @@ class _RegisterUiState extends State<RegisterUi> {
                               // ignore: unused_local_variable
                               String? message;
                               if (e.message == 'email-already-in-use') {
-                                message = "This email address is already!!";
+                                message =
+                                    "This email address is already, Sorry should you change e-mail !!";
                               } else if (e.code == 'weak-password') {
                                 message =
-                                    'Password should be at least 6 characters';
+                                    'Sorry your Password should be at least 6 characters';
                               } else {
                                 message = e.message;
                               }

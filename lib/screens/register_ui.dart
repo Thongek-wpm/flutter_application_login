@@ -148,22 +148,13 @@ class _RegisterUiState extends State<RegisterUi> {
                                 );
                               });
                             } on FirebaseAuthException catch (e) {
-                              print(e.message);
+                              print(e.code);
                               // ignore: unused_local_variable
                               String message;
-                              String code;
                               if (e.message == 'email-already-in-use') {
                                 message = "This email address is already";
-                              } else if (e.code == 'weak-password') {
-                                code =
-                                    "Password should be at least 6 characters ";
-                              } else {
-                                message = e.message!;
-                              }
-                              // Fluttertoast.showToast(
-                              //   msg: code,
-                              //   gravity: ToastGravity.CENTER,
-                              //   );
+                               
+                              }//else if(e.code ==){} message = e.message!;
                             }
                           }
                           ;

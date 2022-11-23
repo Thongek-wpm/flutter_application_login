@@ -159,7 +159,7 @@ class _RegisterUiState extends State<RegisterUi> {
                                     "This email address is already, Sorry should you change e-mail !!";
                               } else if (e.code == 'weak-password') {
                                 message =
-                                    'Sorry your Password should be at least 6 characters';
+                                    'Sorry your password should be at least 6 characters';
                               } else {
                                 message = e.message;
                               }
